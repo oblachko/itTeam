@@ -28,6 +28,7 @@ public class Room {
     }
 
     public void makeProcess(int money){
+        System.out.println("Money: " + money);
 
         if(devOne == null && devTwo == null){
             System.out.println("Работать некому");
