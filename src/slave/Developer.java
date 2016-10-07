@@ -9,8 +9,8 @@ import java.io.FileNotFoundException;
  */
 public class Developer extends Human {
 
-    static final int MIN_SALARY_DEV = 200;
-    static final int MAX_SALARY_DEV = 300;
+    static final int MIN_SALARY_DEV = 400;
+    static final int MAX_SALARY_DEV = 600;
 
 
     public Developer() throws FileNotFoundException {

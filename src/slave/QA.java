@@ -11,8 +11,8 @@ import java.util.Random;
  */
 public class QA extends Human {
 
-    static final int MIN_SALARY_QA = 150;
-    static final int MAX_SALARY_QA = 200;
+    static final int MIN_SALARY_QA = 100;
+    static final int MAX_SALARY_QA = 300;
     private int minimalAcceptedQuality;
 
     public QA() throws FileNotFoundException {

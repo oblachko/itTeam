@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 public class PM extends Human {
     static final int MIN_SALARY_PM = 150;
-    static final int MAX_SALARY_PM = 200;
+    static final int MAX_SALARY_PM = 400;
     final int amountIteration = 8;
     int countIteration = 1;
     int costIteration;
