@@ -2,22 +2,26 @@ package slave;
 
 import product.Code;
 
+import java.io.FileNotFoundException;
+
 /**
  * Created by Ekaterina on 03.10.2016.
  */
-public class Developer extends Human{
+public class Developer extends Human {
+
+    static final int MIN_SALARY_DEV = 200;
+    static final int MAX_SALARY_DEV = 300;
 
 
-    public Developer(String name, int minimalCost) {
-        setName(name);
-        setMinimalCost(minimalCost);
+    public Developer() throws FileNotFoundException {
+        super(MIN_SALARY_DEV, MAX_SALARY_DEV);
     }
 
-    public Code generateCode(int money){
+    public Code generateCode(int money) {
         Code code = null;
 
 
-        if(money > getMinimalCost()){
+        if (money > getSalary()) {
             code = new Code();
             System.out.println("Дев.:Денег достаточно,код написан");
         } else {
@@ -26,4 +30,5 @@ public class Developer extends Human{
 
         return code;
     }
+
 }

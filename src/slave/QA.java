@@ -2,31 +2,50 @@ package slave;
 
 import product.Code;
 
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by Ekaterina on 03.10.2016.
  */
 public class QA extends Human {
 
-    private final int minimalAcceptedQuality;
+    static final int MIN_SALARY_QA = 150;
+    static final int MAX_SALARY_QA = 200;
+    private int minimalAcceptedQuality;
 
-    public QA(String name, int minimalAcceptedQuality, int minimalCost) {
-        setName(name);
-        setMinimalCost(minimalCost);
+    public QA() throws FileNotFoundException {
+        super(MIN_SALARY_QA, MAX_SALARY_QA);
+        setMinimalAcceptedQuality(new Random().nextInt(10));
+    }
+
+    public int getMinimalAcceptedQuality() {
+        return minimalAcceptedQuality;
+    }
+
+    public void setMinimalAcceptedQuality(int minimalAcceptedQuality) {
         this.minimalAcceptedQuality = minimalAcceptedQuality;
     }
 
-    public boolean reviewCode(Code code, int money){
+    public boolean reviewCode(Code code, int money) {
 
-        if(money < getMinimalCost()){
+        if (money < getSalary()) {
             return false;
         }
 
-        if(minimalAcceptedQuality >= code.getQuality()){
+        if (minimalAcceptedQuality >= code.getQuality()) {
             System.out.println("QA.Всё хуйня. Переделать");
         } else {
             System.out.println("QA.Сойдёт");
         }
 
         return true;
+    }
+
+    public float averageQualityCode(List<Code> codeList) {
+        float average = 0f;
+
+        return average;
     }
 }

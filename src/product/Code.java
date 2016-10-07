@@ -14,7 +14,7 @@ public class Code {
         System.out.println(quality);
     }
 
-    public int getQuality(){
+    public int getQuality() {
         return quality;
     }
 }
