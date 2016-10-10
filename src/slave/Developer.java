@@ -17,16 +17,8 @@ public class Developer extends Human {
         super(MIN_SALARY_DEV, MAX_SALARY_DEV);
     }
 
-    public Code generateCode(int money) {
-        Code code = null;
-
-
-        if (money > getSalary()) {
-            code = new Code();
-            System.out.println("Дев.:Денег достаточно,код написан");
-        } else {
-            System.out.println("Дев.:Денег нет");
-        }
+    public Code generateCode() {
+        Code code = new Code();
 
         return code;
     }

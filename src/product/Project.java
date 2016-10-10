@@ -3,17 +3,21 @@ package product;
 // Created by Ponomarenko Oleh on 06.10.2016.
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Project {
 
-    Map<Code, Integer> codeList = new HashMap<>();
+    HashMap<Code, Integer> codeList;
 
 
     public Project() {
+        this.codeList = new HashMap<>();
     }
 
-    public Project(HashMap<Code, Integer> codeList) {
+    public HashMap<Code, Integer> getCodeList() {
+        return codeList;
+    }
+
+    public void setCodeList(HashMap<Code, Integer> codeList) {
         this.codeList = codeList;
     }
 }

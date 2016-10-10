@@ -11,7 +11,6 @@ public class Code {
 
     public Code() {
         quality = new Random().nextInt(10);
-        System.out.println(quality);
     }
 
     public int getQuality() {
