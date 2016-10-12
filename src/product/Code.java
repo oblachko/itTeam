@@ -16,4 +16,11 @@ public class Code {
     public int getQuality() {
         return quality;
     }
+
+    @Override
+    public String toString() {
+        return "Code{" +
+                "quality=" + quality +
+                '}';
+    }
 }

@@ -1,6 +1,5 @@
 package building;
 
-import product.Code;
 import slave.Developer;
 import slave.PM;
 import slave.QA;
@@ -44,29 +43,29 @@ public class Room {
         }
     }
 
-    public void makeProcess(int money) {
-        System.out.println("Money: " + money);
-
-
-        if (qaOne == null) {
-            System.out.println("Проверять некому");
-            return;
-        }
-
-        Code code = devOne.generateCode();
-
-        if (code == null) {
-            System.out.println("Мало денег");
-            return;
-        }
-
-        if (qaOne.reviewCode(code, 200)) {
-            System.out.println("Проверка пройдена");
-        } else {
-            System.out.println("Что-то пошло не так");
-        }
-
-    }
+//    public void makeProcess(int money) {
+//        System.out.println("Money: " + money);
+//
+//
+//        if (qaOne == null) {
+//            System.out.println("Проверять некому");
+//            return;
+//        }
+//
+//        Code code = devOne.generateCode();
+//
+//        if (code == null) {
+//            System.out.println("Мало денег");
+//            return;
+//        }
+//
+//        if (qaOne.reviewCode(code, 200)) {
+//            System.out.println("Проверка пройдена");
+//        } else {
+//            System.out.println("Что-то пошло не так");
+//        }
+//
+//    }
 
 
     @Override

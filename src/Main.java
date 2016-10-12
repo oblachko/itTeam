@@ -1,7 +1,9 @@
 import building.Room;
+import product.Project;
 import slave.HR;
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Created by Ekaterina on 16.09.2016.
@@ -19,7 +21,6 @@ public class Main {
     public void init() throws FileNotFoundException {
         room = new Room();
 
-//        int inputMoney = 0;
 //        System.out.println("Input a sum for project:");
 //        Scanner sc = new Scanner(System.in);
 //        if (sc.hasNext()) {
@@ -27,15 +28,24 @@ public class Main {
 //        }
 
         HR.buildTeam(room);
-        room.getPmOne().costProject(room);
-        room.getPmOne().makeProject(room);
+        Project project = room.getPmOne().makeProject(room);
 
+        System.out.println("Для отображения данных по спринту, укажите его номер:");
 
-//        QA qa = new QA("Дмитрий", 5, 80);
-//
-//
-//
-//        room.makeProcess(inputMoney);
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextInt()) {
+                int sprint = scanner.nextInt();
+                if (sprint >= 1 && sprint <= project.getCodeList().size()) {
+                    project.showCodeByIteration(sprint, project);
+                } else {
+                    System.out.println("Всего было " + project.getCodeList().size() + " спринтов. Повторите ввод:");
+                }
+            } else {
+                System.out.println("Неправильный ввод! Вводить можно только цифры. Введите номер спринта заново:");
+            }
+        }
+
 
     }
 }

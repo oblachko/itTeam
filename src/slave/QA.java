@@ -1,9 +1,9 @@
 package slave;
 
 import product.Code;
+import product.Project;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -28,24 +28,25 @@ public class QA extends Human {
         this.minimalAcceptedQuality = minimalAcceptedQuality;
     }
 
-    public boolean reviewCode(Code code, int money) {
-
-        if (money < getSalary()) {
-            return false;
-        }
-
-        if (minimalAcceptedQuality >= code.getQuality()) {
-            System.out.println("QA.Всё хуйня. Переделать");
+    protected boolean reviewCode(QA qa, Code code, Project project) {
+        boolean result = false;
+        if (code.getQuality() >= qa.getMinimalAcceptedQuality()) {
+            System.out.println("QA: Сойдёт код.");
+            result = true;
         } else {
-            System.out.println("QA.Сойдёт");
+            System.out.println("QA: Всё хуйня. Переделать!");
         }
 
-        return true;
+        return result;
     }
 
-    public float averageQualityCode(List<Code> codeList) {
-        float average = 0f;
+    protected int averageQualityCode(Project project) {
+        int result = 0;
+        for (int i = 0; i < project.getCodeList().size(); i++) {
+            result = result + project.getCodeList().get(i + 1).getQuality();
+            result = result / project.getCodeList().size();
+        }
 
-        return average;
+        return result;
     }
 }
