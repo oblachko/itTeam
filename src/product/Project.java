@@ -1,7 +1,5 @@
 package product;
 
-// Created by Ponomarenko Oleh on 06.10.2016.
-
 import java.util.HashMap;
 
 public class Project {
