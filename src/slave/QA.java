@@ -44,8 +44,9 @@ public class QA extends Human {
         int result = 0;
         for (int i = 0; i < project.getCodeList().size(); i++) {
             result = result + project.getCodeList().get(i + 1).getQuality();
-            result = result / project.getCodeList().size();
+
         }
+        result = result / project.getCodeList().size();
 
         return result;
     }

@@ -45,7 +45,7 @@ public class Project {
     public void showCodeByIteration(int number, Project project) {
         Code code = project.getCodeList().get(number);
 
-        System.out.println("Code #" + number + ":");
+        System.out.println("Sprint #" + number + ":");
         System.out.println(code);
     }
 }

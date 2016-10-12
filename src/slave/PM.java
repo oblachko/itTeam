@@ -45,20 +45,29 @@ public class PM extends Human {
 
     private boolean runIteration(Project project, Room room) {
         boolean result = false;
+        int iterationCost = 0;
         ++madeIterate;
         System.out.println("Iterate #" + madeIterate);
 
         Code code = createTaskDev(room.getDevOne());
+
         giveSalaryDev(room.getDevOne(), project);
+        iterationCost += room.getDevOne().getSalary();
+
         boolean review = createTaskQAReview(room.getQaOne(), code, project);
+        iterationCost += room.getQaOne().getSalary();
         giveSalaryQA(room.getQaOne(), project);
+
         while (!review) {
             code = createTaskDev(room.getDevOne());
             review = createTaskQAReview(room.getQaOne(), code, project);
+            iterationCost += room.getQaOne().getSalary();
             giveSalaryQA(room.getQaOne(), project);
         }
         project.getCodeList().put(madeIterate, code);
-
+        iterationCost += room.getPmOne().getSalary();
+        giveSalaryPM(room.getPmOne(), project);
+        System.out.println("Team salary per iteration: $" + iterationCost);
         System.out.println("Temporary data about profit: $" + project.getCompanyProfit());
         return result;
     }
@@ -69,7 +78,7 @@ public class PM extends Human {
         for (int i = 0; i < amountIteration; i++) {
             runIteration(project, room);
         }
-        giveSalaryPM(room.getPmOne(), project);
+
         System.out.println("-------------");
         System.out.println("Project is done.");
         System.out.println("Average quality of the code: " + createTaskQAAverageQualityCode(room.getQaOne(), project));

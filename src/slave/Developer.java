@@ -19,6 +19,7 @@ public class Developer extends Human {
 
     public Code generateCode() {
         Code code = new Code();
+        System.out.println("Dev написал код. Quality of code = " + code.getQuality());
 
         return code;
     }

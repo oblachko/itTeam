@@ -8,6 +8,7 @@ import java.util.Random;
 public class Code {
 
     private int quality;
+    private int[] historyQuality;
 
     public Code() {
         quality = new Random().nextInt(10);
@@ -15,6 +16,18 @@ public class Code {
 
     public int getQuality() {
         return quality;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    public int[] getHistoryQuality() {
+        return historyQuality;
+    }
+
+    public void setHistoryQuality(int[] historyQuality) {
+        this.historyQuality = historyQuality;
     }
 
     @Override
